@@ -1,0 +1,73 @@
+import React, { Component } from 'react';
+import './login.css';
+import * as mat from 'material-ui';
+import {Link} from 'react-router';
+
+class Login extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = { email: '', password: '' };
+        this.handleSubmit = this.handleLoginSubmit.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
+    }
+
+    handleLoginSubmit(evt) {
+        evt.preventDefault();
+        var email = evt.target.email.value;
+        var password = evt.target.password.value;
+        var userObj = { "email": email, "password": password };
+        // console.log("login data" , userObj)
+        this.props.loginRequest(userObj);
+    }
+
+    handleInputChange(event) {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+
+        this.setState({
+            [name]: value
+        });
+    }
+
+    render() {
+ 
+        // const { application } = this.props.application;
+        return (
+            <div className="main-login-div">
+                <mat.Card className="centerAlign">
+                    <mat.AppBar title="Login" showMenuIconButton={false}  />
+                    <mat.CardText>
+                        <form onSubmit={this.handleSubmit} onChange={this.clearErrors}>
+                            <mat.TextField
+                                hintText="test@test.com"
+                                floatingLabelText="Email"
+                                className="full-width-container"
+                                ref="email"
+                                name="email"
+                                required={true}
+                                type="email"
+                                onChange={this.handleInputChange}
+                                /><br />
+                            <mat.TextField
+                                hintText="password"
+                                ref="password"
+                                name="password"
+                                required={true}
+                                type="password"
+                                className="full-width-container"
+                                onChange={this.handleInputChange}
+                                floatingLabelText="Password" />
+                            <br />
+                            <mat.RaisedButton type="submit"  label="Submit" primary={true} />
+                              <p>Don`t Have account? <Link to="/signup">SignUp</Link></p>
+                        </form>
+                    </mat.CardText>
+                </mat.Card>
+            </div>
+        );
+    }
+}
+
+export default Login;
