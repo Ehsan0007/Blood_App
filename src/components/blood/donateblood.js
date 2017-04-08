@@ -5,10 +5,14 @@ class DonateBlood extends Component{
     constructor(props){
         super(props);
         this.bloodGroup =[
-            "A",
-            "B",
-            "AB",
-            "O",
+            "A+",
+            "B+",
+            "AB+",
+            "O+",
+            "A-",
+            "B-",
+            "AB-",
+            "O-"
         
         ]
         this.state = {name :'' ,email : '', cellnumber : '' , gender : 1 , bloodType : "A+"}
@@ -52,10 +56,10 @@ class DonateBlood extends Component{
             gender : this.state.gender === 1 ? "Male" : "Female",
             address : this.refs.address.getValue(),
             bloodType : this.state.bloodType,
-            A : ["A" ,"O"].indexOf(this.state.bloodType) !== -1 ? true :null,
-            B : ["B", "O+"].indexOf(this.state.bloodType) !== -1 ? true :null,
-            AB : ["A","B" ,"AB","O"].indexOf(this.state.bloodType) !== -1 ? true :null,
-            O : ["O"].indexOf(this.state.bloodType) !== -1 ? true :null,
+            // A : ["A" ,"O"].indexOf(this.state.bloodType) !== -1 ? true :null,
+            // B : ["B", "O+"].indexOf(this.state.bloodType) !== -1 ? true :null,
+            // AB : ["A","B" ,"AB","O"].indexOf(this.state.bloodType) !== -1 ? true :null,
+            // O : ["O"].indexOf(this.state.bloodType) !== -1 ? true :null,
         }
 
         // var userObj = { email: email, name: name, gender: gender, address: address, bloodType: bloodType, cellNumber: cellNumber, isDonor : false };

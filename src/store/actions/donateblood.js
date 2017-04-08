@@ -20,11 +20,10 @@ function donateBloodRequests(){
     };
 }
 
-function donateBloodSuccessRequest(data){
+function donateBloodSuccessRequest(){
     return {
-        type : donateBloodSuccessRequest,
-        data
-    }
+        type : ActionTypes.donateBloodSuccessRequest
+    };
 }
 
 function donateBloodRequestFailed(){

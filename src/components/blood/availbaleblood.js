@@ -5,10 +5,14 @@ class AvailableBlood extends Component {
     constructor(props) {
         super(props);
         this.bloodGroup = [
-            "A",
-            "B",
-            "AB",
-            "O",
+            "A+",
+            "B+",
+            "AB+",
+            "O+",
+            "A-",
+            "B-",
+            "AB-",
+            "O-"
            
         ]
         this.state = { requiredBlood: "A+" }
@@ -30,6 +34,7 @@ class AvailableBlood extends Component {
         console.log("Particular bloodGroup data ", checkBlood)
 
         return (
+            
             <div className="avilableBlood">
                 <mat.Card className="main_div">
                     <mat.CardText>
